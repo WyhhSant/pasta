@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia Visual de Redes Industriais para Automação</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Barra de progresso -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Botão para alternar modo claro/escuro -->
+    <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Cabeçalho -->
+    <header class="header">
+        <div class="container">
+            <h1 class="site-title">Guia Industrial</h1>
+            <p class="site-subtitle">Redes e Protocolos para Automação</p>
+        </div>
+    </header>
+
+    <!-- Caixa de pesquisa -->
+    <div class="search-container">
+        <div class="container">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Pesquisar conteúdo...">
+                <button id="searchClear">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" id="breadcrumb">
+        <div class="container">
+            <a href="#" class="breadcrumb-link">Home</a>
+            <span id="breadcrumb-current"></span>
+        </div>
+    </nav>
+
+    <!-- Navegação principal -->
+    <nav class="main-nav">
+        <div class="container">
+            <ul class="nav-tabs">
+                <li class="nav-item active" data-tab="cabos">
+                    <i class="fas fa-ethernet"></i>
+                    <span>Cabos Industriais</span>
+                </li>
+                <li class="nav-item" data-tab="topologias">
+                    <i class="fas fa-network-wired"></i>
+                    <span>Topologias</span>
+                </li>
+                <li class="nav-item" data-tab="protocolos">
+                    <i class="fas fa-exchange-alt"></i>
+                    <span>Protocolos</span>
+                </li>
+                <li class="nav-item" data-tab="equipamentos">
+                    <i class="fas fa-server"></i>
+                    <span>Equipamentos</span>
+                </li>
+                <li class="nav-item" data-tab="comparacoes">
+                    <i class="fas fa-balance-scale"></i>
+                    <span>Comparações</span>
+                </li>
+                <li class="nav-item" data-tab="quiz">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Quiz</span>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Conteúdo principal -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Aba 1: Cabos Industriais -->
+            <section id="cabos" class="tab-content active">
+                <h2 class="section-title">Cabos Industriais</h2>
+                <p class="section-description">Explore os principais tipos de cabos utilizados em redes industriais.</p>
+                
+                <div class="cards-container">
+                    <!-- Card Par Trançado -->
+                    <div class="card" data-modal="par-trancado">
+                        <div class="card-icon">
+                            <i class="fas fa-plug"></i>
+                        </div>
+                        <h3 class="card-title">Par Trançado</h3>
+                        <p class="card-description">Cabos com pares de fios trançados para redução de interferência eletromagnética.</p>
+                        <button class="card-button">Saber Mais</button>
+                    </div>
+
+                    <!-- Card Fibra Óptica -->
+                    <div class="card" data-modal="fibra-optica">
+                        <div class="card-icon">
+                            <i class="fas fa-broadcast-tower"></i>
+                        </div>
+                        <h3 class="card-title">Fibra Óptica</h3>
+                        <p class="card-description">Transmissão de dados por pulsos de luz através de filamentos de vidro ou plástico.</p>
+                        <button class="card-button">Saber Mais</button>
+                    </div>
+
+                    <!-- Card Wireless -->
+                    <div class="card" data-modal="wireless">
+                        <div class="card-icon">
+                            <i class="fas fa-wifi"></i>
+                        </div>
+                        <h3 class="card-title">Wireless</h3>
+                        <p class="card-description">Comunicação sem fio utilizando tecnologias como Wi-Fi, Bluetooth e Zigbee.</p>
+                        <button class="card-button">Saber Mais</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Aba 2: Topologias de Rede -->
+            <section id="topologias" class="tab-content">
+                <h2 class="section-title">Topologias de Rede</h2>
+                <p class="section-description">Conheça as principais formas de organização de redes industriais.</p>
+                
+                <div class="topology-buttons">
+                    <button class="topology-btn active" data-topology="estrela">
+                        <i class="fas fa-star"></i>
+                        <span>Layout em Estrela</span>
+                    </button>
+                    <button class="topology-btn" data-topology="barramento">
+                        <i class="fas fa-minus"></i>
+                        <span>Layout em Barramento</span>
+                    </button>
+                </div>
+
+                <div class="topology-content">
+                    <!-- Conteúdo Estrela -->
+                    <div id="estrela" class="topology-details active">
+                        <div class="topology-info">
+                            <h3>Layout em Estrela</h3>
+                            <div class="topology-illustration">
+                                <div class="node-switch">Switch</div>
+                                <div class="node">Dispositivo 1</div>
+                                <div class="node">Dispositivo 2</div>
+                                <div class="node">Dispositivo 3</div>
+                            </div>
+                            <div class="info-columns">
+                                <div class="info-col">
+                                    <h4>Como Funciona</h4>
+                                    <p>Todos os dispositivos conectam-se diretamente a um equipamento central (switch).</p>
+                                    <p>A comunicação passa sempre pelo nó central.</p>
+                                </div>
+                                <div class="info-col">
+                                    <h4>Vantagens</h4>
+                                    <ul>
+                                        <li>Fácil manutenção</li>
+                                        <li>Facilidade para localizar falhas</li>
+                                        <li>Alta confiabilidade</li>
+                                        <li>Boa expansão</li>
+                                    </ul>
+                                </div>
+                                <div class="info-col">
+                                    <h4>Desvantagens</h4>
+                                    <ul>
+                                        <li>Maior quantidade de cabos</li>
+                                        <li>Dependência do switch</li>
+                                        <li>Custo mais elevado</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Conteúdo Barramento -->
+                    <div id="barramento" class="topology-details">
+                        <div class="topology-info">
+                            <h3>Layout em Barramento</h3>
+                            <div class="topology-illustration bus">
+                                <div class="bus-line"></div>
+                                <div class="node">Dispositivo 1</div>
+                                <div class="node">Dispositivo 2</div>
+                                <div class="node">Dispositivo 3</div>
+                            </div>
+                            <div class="info-columns">
+                                <div class="info-col">
+                                    <h4>Como Funciona</h4>
+                                    <p>Todos os dispositivos conectam-se a um cabo principal (barramento).</p>
+                                    <p>Os dados são transmitidos pelo barramento e capturados pelos dispositivos.</p>
+                                </div>
+                                <div class="info-col">
+                                    <h4>Vantagens</h4>
+                                    <ul>
+                                        <li>Baixo custo</li>
+                                        <li>Pouca quantidade de cabos</li>
+                                        <li>Instalação simples</li>
+                                    </ul>
+                                </div>
+                                <div class="info-col">
+                                    <h4>Desvantagens</h4>
+                                    <ul>
+                                        <li>Difícil localizar falhas</li>
+                                        <li>Colisão de dados</li>
+                                        <li>Menor confiabilidade</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Aba 3: Protocolos Industriais -->
+            <section id="protocolos" class="tab-content">
+                <h2 class="section-title">Protocolos Industriais</h2>
+                <p class="section-description">Protocolos de comunicação utilizados em automação industrial.</p>
+                
+                <div class="cards-container">
+                    <!-- PROFINET -->
+                    <div class="protocol-card">
+                        <div class="protocol-header">
+                            <h3>PROFINET</h3>
+                            <span class="protocol-type">Ethernet Industrial</span>
+                        </div>
+                        <div class="protocol-info">
+                            <div class="info-item">
+                                <strong>Fabricantes:</strong> Siemens, Phoenix Contact
+                            </div>
+                            <div class="info-item">
+                                <strong>Velocidade:</strong> Até 1 Gbps
+                            </div>
+                            <div class="info-item">
+                                <strong>Aplicações:</strong> Automação de processos e manufatura
+                            </div>
+                        </div>
+                        <div class="protocol-features">
+                            <div class="advantage">Alta performance</div>
+                            <div class="advantage">Integração com IT</div>
+                            <div class="disadvantage">Custo elevado</div>
+                        </div>
+                    </div>
+
+                    <!-- PROFIBUS -->
+                    <div class="protocol-card">
+                        <div class="protocol-header">
+                            <h3>PROFIBUS</h3>
+                            <span class="protocol-type">Fieldbus</span>
+                        </div>
+                        <div class="protocol-info">
+                            <div class="info-item">
+                                <strong>Fabricantes:</strong> Siemens, ABB
+                            </div>
+                            <div class="info-item">
+                                <strong>Velocidade:</strong> Até 12 Mbps
+                            </div>
+                            <div class="info-item">
+                                <strong>Aplicações:</strong> Automóvel, processos
+                            </div>
+                        </div>
+                        <div class="protocol-features">
+                            <div class="advantage">Amplamente utilizado</div>
+                            <div class="advantage">Robusto</div>
+                            <div class="disadvantage">Velocidade limitada</div>
+                        </div>
+                    </div>
+
+                    <!-- Modbus TCP -->
+                    <div class="protocol-card">
+                        <div class="protocol-header">
+                            <h3>Modbus TCP</h3>
+                            <span class="protocol-type">Ethernet</span>
+                        </div>
+                        <div class="protocol-info">
+                            <div class="info-item">
+                                <strong>Fabricantes:</strong> Diversos
+                            </div>
+                            <div class="info-item">
+                                <strong>Velocidade:</strong> Até 1 Gbps (depende da rede)
+                            </div>
+                            <div class="info-item">
+                                <strong>Aplicações:</strong> Supervisão, SCADA
+                            </div>
+                        </div>
+                        <div class="protocol-features">
+                            <div class="advantage">Simples</div>
+                            <div class="advantage">Aberto</div>
+                            <div class="disadvantage">Sem segurança nativa</div>
+                        </div>
+                    </div>
+
+                    <!-- EtherNet/IP -->
+                    <div class="protocol-card">
+                        <div class="protocol-header">
+                            <h3>EtherNet/IP</h3>
+                            <span class="protocol-type">Ethernet Industrial</span>
+                        </div>
+                        <div class="protocol-info">
+                            <div class="info-item">
+                                <strong>Fabricantes:</strong> Rockwell, Allen-Bradley
+                            </div>
+                            <div class="info-item">
+                                <strong>Velocidade:</strong> Até 1 Gbps
+                            </div>
+                            <div class="info-item">
+                                <strong>Aplicações:</strong> Manufatura discreta
+                            </div>
+                        </div>
+                        <div class="protocol-features">
+                            <div class="advantage">Padrão Ethernet</div>
+                            <div class="advantage">Flexível</div>
+                            <div class="disadvantage">Configuração complexa</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Aba 4: Equipamentos de Rede -->
+            <section id="equipamentos" class="tab-content">
+                <h2 class="section-title">Equipamentos de Rede</h2>
+                <p class="section-description">Componentes essenciais para redes industriais.</p>
+                
+                <div class="cards-container">
+                    <!-- Switch Industrial -->
+                    <div class="equipment-card">
+                        <div class="equipment-icon">
+                            <i class="fas fa-sitemap"></i>
+                        </div>
+                        <h3>Switch Industrial</h3>
+                        <p><strong>Função:</strong> Conectar dispositivos em rede local</p>
+                        <p><strong>Uso:</strong> Distribuição de dados entre CLPs, HMIs, I/O</p>
+                        <p><strong>Curiosidade:</strong> Versões industriais suportam temperaturas extremas e vibração</p>
+                    </div>
+
+                    <!-- Roteador Industrial -->
+                    <div class="equipment-card">
+                        <div class="equipment-icon">
+                            <i class="fas fa-route"></i>
+                        </div>
+                        <h3>Roteador Industrial</h3>
+                        <p><strong>Função:</strong> Interconectar redes diferentes</p>
+                        <p><strong>Uso:</strong> Conexão entre rede da planta e corporativa</p>
+                        <p><strong>Curiosidade:</strong> Possuem recursos de segurança avançados</p>
+                    </div>
+
+                    <!-- Access Point Industrial -->
+                    <div class="equipment-card">
+                        <div class="equipment-icon">
+                            <i class="fas fa-wifi"></i>
+                        </div>
+                        <h3>Access Point Industrial</h3>
+                        <p><strong>Função:</strong> Prover conectividade wireless</p>
+                        <p><strong>Uso:</strong> Dispositivos móveis, áreas de difícil cabeadamento</p>
+                        <p><strong>Curiosidade:</strong> Resistentes a interferência eletromagnética</p>
+                    </div>
+
+                    <!-- Conversor de Fibra -->
+                    <div class="equipment-card">
+                        <div class="equipment-icon">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <h3>Conversor de Fibra</h3>
+                        <p><strong>Função:</strong> Converter sinais elétricos em ópticos</p>
+                        <p><strong>Uso:</strong> Extensão de distâncias, isolamento galvânico</p>
+                        <p><strong>Curiosidade:</strong> Permite comunicação a quilômetros de distância</p>
+                    </div>
+
+                    <!-- CLP -->
+                    <div class="equipment-card">
+                        <div class="equipment-icon">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <h3>CLP</h3>
+                        <p><strong>Função:</strong> Controlar processos industriais</p>
+                        <p><strong>Uso:</strong> Automação de máquinas e processos</p>
+                        <p><strong>Curiosidade:</strong> Programado com linguagem ladder ou texto estruturado</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Aba 5: Comparações -->
+            <section id="comparacoes" class="tab-content">
+                <h2 class="section-title">Comparações</h2>
+                <p class="section-description">Tabelas comparativas entre diferentes tecnologias.</p>
+                
+                <div class="comparison-section">
+                    <h3>Comparação de Cabos</h3>
+                    <div class="table-container">
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Característica</th>
+                                    <th>Par Trançado</th>
+                                    <th>Fibra Óptica</th>
+                                    <th>Wireless</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Velocidade</td>
+                                    <td>Até 10 Gbps</td>
+                                    <td>Até 100+ Gbps</td>
+                                    <td>Até 1.3 Gbps (Wi-Fi 6)</td>
+                                </tr>
+                                <tr>
+                                    <td>Distância</td>
+                                    <td>Até 100m</td>
+                                    <td>Até 80km</td>
+                                    <td>Até 100m (indoor)</td>
+                                </tr>
+                                <tr>
+                                    <td>Interferência</td>
+                                    <td>Moderada</td>
+                                    <td>Nula</td>
+                                    <td>Alta</td>
+                                </tr>
+                                <tr>
+                                    <td>Custo</td>
+                                    <td>Baixo</td>
+                                    <td>Alto</td>
+                                    <td>Médio</td>
+                                </tr>
+                                <tr>
+                                    <td>Instalação</td>
+                                    <td>Fácil</td>
+                                    <td>Complexa</td>
+                                    <td>Muito Fácil</td>
+                                </tr>
+                                <tr>
+                                    <td>Aplicação</td>
+                                    <td>Escritórios, plantas</td>
+                                    <td>Longas distâncias</td>
+                                    <td>Mobilidade</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="comparison-section">
+                    <h3>Comparação de Topologias</h3>
+                    <div class="table-container">
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Característica</th>
+                                    <th>Estrela</th>
+                                    <th>Barramento</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Custo</td>
+                                    <td>Alto</td>
+                                    <td>Baixo</td>
+                                </tr>
+                                <tr>
+                                    <td>Manutenção</td>
+                                    <td>Fácil</td>
+                                    <td>Difícil</td>
+                                </tr>
+                                <tr>
+                                    <td>Confiabilidade</td>
+                                    <td>Alta</td>
+                                    <td>Baixa</td>
+                                </tr>
+                                <tr>
+                                    <td>Escalabilidade</td>
+                                    <td>Boa</td>
+                                    <td>Limitada</td>
+                                </tr>
+                                <tr>
+                                    <td>Quantidade de Cabos</td>
+                                    <td>Alta</td>
+                                    <td>Baixa</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Aba 6: Quiz -->
+            <section id="quiz" class="tab-content">
+                <h2 class="section-title">Quiz de Redes Industriais</h2>
+                <p class="section-description">Teste seus conhecimentos sobre redes industriais.</p>
+                
+                <div class="quiz-container">
+                    <div class="quiz-intro" id="quizIntro">
+                        <p>Este quiz contém 10 perguntas sobre redes industriais. Boa sorte!</p>
+                        <button class="quiz-start-btn" id="quizStart">Iniciar Quiz</button>
+                    </div>
+                    
+                    <div class="quiz-content" id="quizContent" style="display: none;">
+                        <div class="quiz-progress">
+                            <div class="progress-bar-quiz">
+                                <div class="progress-fill" id="quizProgress"></div>
+                            </div>
+                            <span class="progress-text" id="quizProgressText">Pergunta 1 de 10</span>
+                        </div>
+                        
+                        <div class="quiz-question" id="quizQuestion"></div>
+                        
+                        <div class="quiz-options" id="quizOptions"></div>
+                        
+                        <div class="quiz-feedback" id="quizFeedback"></div>
+                        
+                        <button class="quiz-next-btn" id="quizNext" style="display: none;">Próxima Pergunta</button>
+                    </div>
+                    
+                    <div class="quiz-results" id="quizResults" style="display: none;">
+                        <h3>Resultado do Quiz</h3>
+                        <div class="score-display" id="quizScore"></div>
+                        <p id="quizMessage"></p>
+                        <button class="quiz-restart-btn" id="quizRestart">Refazer Quiz</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Modais para os cabos -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal" id="modal">
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-content" id="modalContent"></div>
+        </div>
+    </div>
+
+    <!-- Botão Voltar ao Topo -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Guia Industrial</h3>
+                    <p>Portal educativo sobre Redes Industriais para Automação.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Desenvolvimento</h4>
+                    <p>Desenvolvido com HTML5, CSS3 e JavaScript puro.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Recursos</h4>
+                    <ul>
+                        <li>Design responsivo</li>
+                        <li>Modo claro/escuro</li>
+                        <li>Animações</li>
+                        <li>Quiz interativo</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Guia Visual de Redes Industriais para Automação</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
